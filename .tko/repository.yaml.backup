@@ -1,0 +1,40 @@
+version: '0.2'
+sources:
+- database: local
+  link: ''
+  type: local
+  branch: master
+  cache_path: ''
+  cache_timestamp: ''
+  filters: null
+- database: poo
+  link: https://github.com/qxcodepoo/arcade/blob/master/Readme.md
+  type: remote
+  branch: master
+  cache_path: /home/kayo/poo/.tko/cache/poo.md
+  cache_timestamp: '2025-10-28 10:24:31'
+  filters:
+  - acesso
+  - simples
+expanded:
+- poo@campanha-principal
+- poo@bloco_b-modificadores-de-acesso
+- poo@bloco_b-agregação-simples
+tasks:
+  poo@chinela: '{rate:100, human:SIM, alone:10, study:5}'
+  poo@camisa: '{rate:100, human:SIM, alone:8}'
+  poo@roupa: '{rate:100, human:SIM, alone:10}'
+  poo@relogio: '{rate:100, alone:10}'
+  poo@motoca: '{rate:100, alone:10}'
+  poo@grafite: '{rate:100, iagen:SIM, alone:7, study:30}'
+  poo@motouber: '{rate:100, human:SIM, alone:10, study:40}'
+  poo@notebook: '{rate:100, human:SIM, alone:7, study:60}'
+  poo@tamagotchi: '{rate:100, iagen:MUITA, alone:5, study:48}'
+flags:
+  quests: 0
+  tracks: 0
+  tasks: 0
+  graph: 1
+  xray: 0
+lang: py
+selected: poo@charger

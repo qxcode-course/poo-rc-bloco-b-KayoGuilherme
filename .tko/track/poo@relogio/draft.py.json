@@ -1,0 +1,44 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-22_08-57-13",
+            "content": "@@ -311,20 +311,16 @@\n f.__hora\n-:02d\n %7D:%7Bself.\n@@ -327,20 +327,16 @@\n __minuto\n-:02d\n %7D:%7Bself.\n@@ -348,12 +348,8 @@\n undo\n-:02d\n %7D%22  \n",
+            "lines": "85"
+        },
+        {
+            "label": "2025-10-22_08-57-44",
+            "content": "@@ -649,37 +649,15 @@\n     \n-print(%22fail: hora invalida %22)\n+ return\n %0A   \n@@ -784,38 +784,14 @@\n     \n-print(%22fail: minuto invalido%22)\n+return\n %0A   \n@@ -915,41 +915,14 @@\n     \n-  print(%22fail: segundo invalido%22)\n+return\n %0A   \n",
+            "lines": "85"
+        },
+        {
+            "label": "2025-10-22_08-59-10",
+            "content": "@@ -675,37 +675,16 @@\n lida %22)%0A\n-        else:   %0A    \n         \n@@ -703,16 +703,16 @@\n = valor%0A\n+\n       %0A \n@@ -837,30 +837,8 @@\n o%22)%0A\n-        else:    %0A    \n     \n@@ -863,16 +863,16 @@\n = valor%0A\n+\n %0A    def\n@@ -995,30 +995,8 @@\n o%22)%0A\n-         else:   %0A    \n     \n@@ -1026,26 +1026,8 @@\n alor\n- %0A                \n %0A%0A%0A \n",
+            "lines": "85"
+        },
+        {
+            "label": "2025-10-22_09-00-51",
+            "content": "@@ -671,16 +671,17 @@\n invalida\n+ \n %22)%0A     \n",
+            "lines": "89"
+        },
+        {
+            "label": "2025-10-22_09-01-14",
+            "content": "@@ -797,34 +797,34 @@\n not in range(0, \n-59\n+60\n ):%0A            p\n@@ -982,18 +982,18 @@\n ange(0, \n-59\n+60\n ):%0A     \n",
+            "lines": "89"
+        },
+        {
+            "label": "2025-10-22_09-01-53",
+            "content": "@@ -797,34 +797,34 @@\n not in range(0, \n-60\n+59\n ):%0A            p\n@@ -982,18 +982,18 @@\n ange(0, \n-60\n+59\n ):%0A     \n@@ -1286,26 +1286,26 @@\n __minuto == \n-60\n+59\n :%0A          \n",
+            "lines": "89"
+        },
+        {
+            "label": "2025-10-22_09-02-14",
+            "content": "@@ -1384,17 +1384,17 @@\n ora == 2\n-4\n+3\n :%0A      \n",
+            "lines": "89"
+        },
+        {
+            "label": "2025-10-22_09-02-27",
+            "content": "class Watch:\n    def __init__(self, hora:int, minuto:int, segundo: int) -> None:\n        self.__hora: int = 0\n        self.__minuto: int = 0\n        self.__segundo: int = 0\n\n        self.setHora(hora)\n        self.setMin(minuto)\n        self.setSeg(segundo)\n\n    def __str__(self) -> str:\n        return f\"{self.__hora:02d}:{self.__minuto:02d}:{self.__segundo:02d}\"    \n\n    def getHora(self) -> int:\n        return self.__hora\n    \n    def getMin(self) -> int:\n        return self.__minuto\n    \n    def getSeg(self) -> int:\n        return self.__segundo\n    \n    def setHora(self, valor: int) -> None:\n        if valor not in range(0, 24):\n           print(\"fail: hora invalida\")\n        else:   \n            self.__hora = valor\n      \n    def setMin(self, valor: int) -> None:\n        if valor not in range(0, 60):\n            print(\"fail: minuto invalido\")\n        else:    \n            self.__minuto = valor\n\n    def setSeg(self, valor: int) -> None:\n         if valor not in range(0, 60):\n              print(\"fail: segundo invalido\")\n         else:   \n             self.__segundo = valor \n                \n\n\n    def nextSecond(self) -> None:\n        self.__segundo += 1\n        if self.__segundo == 60:\n          self.__segundo = 0\n          self.__minuto += 1\n          if self.__minuto == 60:\n            self.__minuto = 0\n            self.__hora += 1\n            if self.__hora == 24:\n                self.__hora = 0\n          \ndef main():\n    watch = Watch(00, 00, 00)\n\n    while True:\n        line = input()\n        print(\"$\" + line)\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"init\":\n            watch = Watch(int(args[1]), int(args[2]), int(args[3]))\n        elif args[0] == \"set\":\n            watch.setHora(int(args[1]))\n            watch.setMin(int(args[2]))\n            watch.setSeg(int(args[3]))\n        elif args[0] == \"show\":    \n            print(watch)\n        elif args[0] == \"next\":\n            watch.nextSecond()\n        else:\n            print(\"comando inv\u00e1lido\")\n            \nmain()\n        \n\n       \n\n        \n\n\n\n\n\n\n        ",
+            "lines": "89"
+        }
+    ]
+}

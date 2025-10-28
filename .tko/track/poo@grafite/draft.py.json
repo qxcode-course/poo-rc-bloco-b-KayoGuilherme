@@ -1,0 +1,49 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-27_21-37-02",
+            "content": "@@ -414,279 +414,5 @@\n n f%22\n-%7Bself.calibre%7D:%7Bself.dureza%7D:%7Bself.size%7Dmm%22%0A    %0A%0Aclass Lapiseira:%0A    def __init__(self, calibre: float = None):%0A        if calibre:%0A            self.calibre = float(calibre)%0A        else:%0A            self.calibre = None%0A        self.ponta: Grafite %7C None = None%0A%0A%0A    %0A    \n+%22\n",
+            "lines": "18"
+        },
+        {
+            "label": "2025-10-27_21-42-43",
+            "content": "@@ -679,529 +679,14 @@\n ne%0A%0A\n-    def hasGrafite(self) -%3E bool:%0A        return self.ponta is not None%0A    %0A    def insert(self, grafite: Grafite) -%3E bool:%0A        if self.calibre is None:%0A            print(%22fail: calibre imcompativel%22)%0A            return False%0A        if abs(self.calibre - float(grafite.calibre)) %3E 1e-9:%0A            print(%22fail: calibre imcompativel%22)%0A            return False%0A        if self.ponta is not None:%0A            print(%22fail: ja existe grafite%22)%0A            return False%0A        self.ponta = grafite%0A        return True\n %0A    %0A\n+    \n",
+            "lines": "31"
+        },
+        {
+            "label": "2025-10-27_21-48-39",
+            "content": "@@ -1204,213 +1204,4 @@\n    %0A\n-    def remover(self):%0A        if self.ponta is None:%0A            print(%22fail: nao existe grafite%22)%0A            return None%0A        self.ponta = None%0A        return True%0A    %0A    def writePage(self):%0A        %0A\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-27_21-50-08",
+            "content": "@@ -1412,394 +1412,5 @@\n     \n-if self.ponta is None:%0A            print(%22fail: nao existe grafite%22)%0A            return False%0A        if 10 %3E= self.ponta.size:%0A            print(%22fail: tamanho insuficiente%22)%0A            return False%0A        usage = self.ponta.usagePerSheet()%0A        if 0 %3E= usage:%0A            print(%22fail: dureza invalida%22)%0A            return False%0A        if(self.ponta.size - usage) %3C 10:%0A            \n %0A\n",
+            "lines": "53"
+        },
+        {
+            "label": "2025-10-27_21-56-31",
+            "content": "@@ -1801,94 +1801,5 @@\n     \n-self.ponta.size = 10%0A            print(%22fail: folha incompleta%22)%0A            return False\n %0A\n",
+            "lines": "64"
+        },
+        {
+            "label": "2025-10-27_21-57-02",
+            "content": "@@ -1891,79 +1891,4 @@\n lse%0A\n-        else:%0A            self.ponta.size -= usage%0A            return True%0A\n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-10-27_21-57-25",
+            "content": "@@ -679,369 +679,8 @@\n ne%0A%0A\n-    def __str__(self):%0A        if self.calibre is not None:%0A            calibre = str(self.calibre)%0A        else:%0A            calibre = %22None%22%0A        if self.ponta is not None:%0A            return f%22calibre: %7Bcalibre%7D, grafite: %5B%7Bself.ponta.calibre%7D:%7Bself.ponta.dureza%7D:%7Bself.ponta.size%7D%5D%22%0A        else:%0A            return f%22calibre: %7Bcalibre%7D, grafite: null%22%0A%0A\n     \n@@ -1966,871 +1966,4 @@\n rue%0A\n-        %0Adef main():%0A    lapiseira = Lapiseira%0A    while True:%0A        line = input()%0A        print(%22$%22 + line)%0A        args = line.split()%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        elif args%5B0%5D == %22init%22:%0A            calibre = float(args%5B1%5D)%0A            lapiseira = Lapiseira(calibre)%0A        elif args%5B0%5D == %22insert%22:%0A            calibre = float(args%5B1%5D)%0A            dureza = args%5B2%5D%0A            tamanho = int(args%5B3%5D)%0A            grafite = Grafite(calibre, dureza, tamanho)%0A            lapiseira.insert(grafite)%0A        elif args%5B0%5D == %22remover%22 or args%5B0%5D == %22remove%22:%0A            if lapiseira is None:%0A                print(%22fail: lapiseira nao iniciada%22)%0A                continue%0A            lapiseira.remover()%0A        elif args%5B0%5D == %22write%22:%0A            lapiseira.writePage()%0A        elif args%5B0%5D == %22show%22:%0A            print(lapiseira)%0A%0Amain()\n",
+            "lines": "69"
+        },
+        {
+            "label": "2025-10-27_21-58-45",
+            "content": "@@ -1220,33 +1220,33 @@\n %22fail: calibre i\n-n\n+m\n compativel%22)%0A   \n@@ -1363,17 +1363,17 @@\n alibre i\n-n\n+m\n compativ\n",
+            "lines": "109"
+        },
+        {
+            "label": "2025-10-27_21-59-32",
+            "content": "class Grafite:\n    def __init__(self, calibre: float, dureza: str, tamanho: int):\n        self.calibre = calibre\n        self.dureza = dureza\n        self.size = int(tamanho)\n\n\n    def usagePerSheet(self) -> int:\n        gasto = {\n            \"HB\": 1,\n            \"2B\": 2,\n            \"4B\": 4,\n            \"6B\": 6\n        }\n        return gasto.get(self.dureza, 0)\n    \n    def __str__(self) -> str:\n        return f\"{self.calibre}:{self.dureza}:{self.size}mm\"\n    \n\nclass Lapiseira:\n    def __init__(self, calibre: float = None):\n        if calibre:\n            self.calibre = float(calibre)\n        else:\n            self.calibre = None\n        self.ponta: Grafite | None = None\n\n    def __str__(self):\n        if self.calibre is not None:\n            calibre = str(self.calibre)\n        else:\n            calibre = \"None\"\n        if self.ponta is not None:\n            return f\"calibre: {calibre}, grafite: [{self.ponta.calibre}:{self.ponta.dureza}:{self.ponta.size}]\"\n        else:\n            return f\"calibre: {calibre}, grafite: null\"\n\n    def hasGrafite(self) -> bool:\n        return self.ponta is not None\n    \n    def insert(self, grafite: Grafite) -> bool:\n        if self.calibre is None:\n            print(\"fail: calibre incompativel\")\n            return False\n        if abs(self.calibre - float(grafite.calibre)) > 1e-9:\n            print(\"fail: calibre incompativel\")\n            return False\n        if self.ponta is not None:\n            print(\"fail: ja existe grafite\")\n            return False\n        self.ponta = grafite\n        return True\n    \n    def remover(self):\n        if self.ponta is None:\n            print(\"fail: nao existe grafite\")\n            return None\n        self.ponta = None\n        return True\n    \n    def writePage(self):\n        if self.ponta is None:\n            print(\"fail: nao existe grafite\")\n            return False\n        if 10 >= self.ponta.size:\n            print(\"fail: tamanho insuficiente\")\n            return False\n        usage = self.ponta.usagePerSheet()\n        if 0 >= usage:\n            print(\"fail: dureza invalida\")\n            return False\n        if(self.ponta.size - usage) < 10:\n            self.ponta.size = 10\n            print(\"fail: folha incompleta\")\n            return False\n        else:\n            self.ponta.size -= usage\n            return True\n        \ndef main():\n    lapiseira = Lapiseira\n    while True:\n        line = input()\n        print(\"$\" + line)\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"init\":\n            calibre = float(args[1])\n            lapiseira = Lapiseira(calibre)\n        elif args[0] == \"insert\":\n            calibre = float(args[1])\n            dureza = args[2]\n            tamanho = int(args[3])\n            grafite = Grafite(calibre, dureza, tamanho)\n            lapiseira.insert(grafite)\n        elif args[0] == \"remover\" or args[0] == \"remove\":\n            if lapiseira is None:\n                print(\"fail: lapiseira nao iniciada\")\n                continue\n            lapiseira.remover()\n        elif args[0] == \"write\":\n            lapiseira.writePage()\n        elif args[0] == \"show\":\n            print(lapiseira)\n\nmain()",
+            "lines": "109"
+        }
+    ]
+}

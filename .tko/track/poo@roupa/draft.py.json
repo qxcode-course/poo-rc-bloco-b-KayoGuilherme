@@ -1,0 +1,54 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-21_11-02-37",
+            "content": "@@ -68,152 +68,8 @@\n %22%0A%0A%0A\n-    def __str__(self) -%3E str:%0A       if self.tamanho == %22%22:%0A        return %22size: ()%22%0A       else:%0A           return f%22size: (%7Bself.tamanho%7D)%22%0A%0A\n     \n@@ -337,68 +337,28 @@\n     \n-print(f%22fail: Valor inv%C3%A1lido, tente PP, P, M, G, GG, ou GX%22)\n+self.tamanho = valor\n %0A%0A%0Ad\n@@ -404,21 +404,16 @@\n )      %0A\n-    %0A\n     whil\n@@ -418,14 +418,34 @@\n ile \n-True:%0A\n+camisa.getTamanho() == %22%22:\n %0A   \n@@ -449,20 +449,23 @@\n         \n-line\n+tamanho\n  = input\n@@ -479,150 +479,94 @@\n     \n-print(%22$%22 + line)%0A        args = line.split()%0A%0A        if args%5B0%5D == %22end%22:%0A            break%0A        if args%5B0%5D == %22show%22:%0A            print(\n+camisa.setTamanho(tamanho)%0A%0A    print(f%22Parabens! Voc%C3%AA comprou uma camisa do tamanho %7B\n cami\n@@ -578,26 +578,22 @@\n tTamanho\n-)%0A        \n+()%7D.%22)\n %0A%0Amain()\n",
+            "lines": "27"
+        },
+        {
+            "label": "2025-10-21_11-06-47",
+            "content": "@@ -793,60 +793,10 @@\n misa\n-)%0A        if args%5B0%5D == %22size%22:%0A            camisa.s\n+.g\n etTa\n@@ -804,16 +804,8 @@\n anho\n-(args%5B1%5D\n )%0A  \n@@ -814,57 +814,9 @@\n     \n-else:%0A            print(%22fail: comando invalido%22)\n+%0A\n %0Amai\n",
+            "lines": "40"
+        },
+        {
+            "label": "2025-10-21_11-07-56",
+            "content": "@@ -906,25 +906,25 @@\n  comando inv\n-%C3%A1\n+a\n lido%22)%0Amain(\n",
+            "lines": "42"
+        },
+        {
+            "label": "2025-10-21_11-08-14",
+            "content": "@@ -735,34 +735,32 @@\n   break%0A        \n-el\n if args%5B0%5D == %22s\n@@ -799,18 +799,16 @@\n         \n-el\n if args%5B\n",
+            "lines": "42"
+        },
+        {
+            "label": "2025-10-21_11-08-39",
+            "content": "@@ -533,18 +533,18 @@\n  GG, ou \n-X\n G\n+X\n %22)%0A%0A%0Adef\n",
+            "lines": "42"
+        },
+        {
+            "label": "2025-10-21_11-09-47",
+            "content": "@@ -409,32 +409,92 @@\n ido:%0A           \n+ print(f%22Erro: tamanho inv%C3%A1lido%22)%0A        else:%0A            \n print(f%22fail: Va\n@@ -541,69 +541,8 @@\n XG%22)\n-%0A        else:%0A           print(f%22Erro: tamanho inv%C3%A1lido%22)%0A  \n %0A%0A%0Ad\n",
+            "lines": "42"
+        },
+        {
+            "label": "2025-10-21_11-10-13",
+            "content": "@@ -468,16 +468,17 @@\n M, G, GG\n+,\n  ou XG%22)\n",
+            "lines": "43"
+        },
+        {
+            "label": "2025-10-21_11-10-28",
+            "content": "@@ -495,40 +495,8 @@\n se:%0A\n-           self.tamanho = valor%0A\n     \n",
+            "lines": "43"
+        },
+        {
+            "label": "2025-10-21_11-11-02",
+            "content": "@@ -531,16 +531,51 @@\n         \n+   print(f%22Erro: tamanho inv%C3%A1lido%22)\n %0A  %0A%0A%0Ade\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-21_11-11-09",
+            "content": "class Camisa:\n    def __init__(self):\n        self.tamanho: str = \"\"\n\n\n    def __str__(self) -> str:\n       if self.tamanho == \"\":\n        return \"size: ()\"\n       else:\n           return f\"size: ({self.tamanho})\"\n\n    def getTamanho(self) -> str:\n        return self.tamanho \n    \n\n    def setTamanho(self, valor: str) -> None:\n        valido = [\"PP\", \"P\", \"M\", \"G\", \"GG\", \"XG\"]\n\n        if valor not in valido:\n           print(f\"fail: Valor inv\u00e1lido, tente PP, P, M, G, GG ou XG\")\n        else:\n           self.tamanho = valor\n        \n  \n\n\ndef main():\n    camisa: Camisa = Camisa()      \n    \n    while True:\n\n        line = input()\n        print(\"$\" + line)\n        args = line.split()\n\n        if args[0] == \"end\":\n            break\n        elif args[0] == \"show\":\n            print(camisa)\n        elif args[0] == \"size\":\n            camisa.setTamanho(args[1])\n        else:\n            print(\"fail: comando inv\u00e1lido\")\nmain()",
+            "lines": "44"
+        }
+    ]
+}

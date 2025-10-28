@@ -1,0 +1,44 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-27_22-25-44",
+            "content": "@@ -138,40 +138,8 @@\n Max%0A\n-        self.energy = energyMax%0A\n     \n@@ -264,269 +264,4 @@\n   if\n- value %3C= 0:%0A            self.energy = 0%0A            self.alive = False%0A            return %22fail: pet morreu de fraqueza%22%0A        elif value %3E self.energyMax:%0A            self.energy = self.energyMax%0A        else:%0A            self.energy = value%0A        return None\n",
+            "lines": "10"
+        },
+        {
+            "label": "2025-10-27_22-28-03",
+            "content": "@@ -561,96 +561,4 @@\n None\n-%0A    %0A    def set_clean(self, value: int):%0A        if value %3C= 0:%0A            self.clean = 0\n",
+            "lines": "19"
+        },
+        {
+            "label": "2025-10-27_22-32-26",
+            "content": "@@ -653,400 +653,4 @@\n  = 0\n-%0A            self.alive = False%0A            return %22fail: pet morreu de sujeira%22%0A        elif value %3E self.cleanMax:%0A            self.clean = self.cleanMax%0A        else:%0A            self.clean = value%0A        return None%0A    %0A    def isAlive(self):%0A        return self.alive%0A    %0A    def show(self):%0A        return f%22E:%7Bself.energy%7D/%7Bself.energyMax%7D, L:%7Bself.clean%7D/%7Bself.cleanMax%7D, I:%7Bself.age%7D%22\n",
+            "lines": "23"
+        },
+        {
+            "label": "2025-10-27_22-41-28",
+            "content": "@@ -1049,69 +1049,4 @@\n ge%7D%22\n-%0A    %0Aclass Game:%0A    def __init__(self):%0A        self.pet = None\n",
+            "lines": "36"
+        },
+        {
+            "label": "2025-10-27_23-04-25",
+            "content": "@@ -1,16 +1,16 @@\n class T\n-a\n+o\n magotchi\n@@ -1051,17 +1051,16 @@\n %7D%22%0A    %0A\n-%0A\n class Ga\n@@ -1079,32 +1079,32 @@\n __init__(self):%0A\n+\n         self.pet\n@@ -1114,2174 +1114,4 @@\n None\n-%0A%0A    def init(self, energyMax, cleanMax):%0A        self.pet = Tamagotchi(energyMax, cleanMax)%0A%0A    def play(self):%0A        if not self.pet.isAlive():%0A            return %22fail: pet esta morto%22%0A        %0A        self.pet.age += 1%0A        %0A        msg_energy = self.pet.set_energy(self.pet.energy - 2)%0A        msg_clean = self.pet.set_clean(self.pet.clean - 3)%0A        if msg_energy: %0A            return msg_energy%0A        if msg_clean: %0A            return msg_clean%0A%0A        return None%0A%0A    def sleep(self):%0A        if not self.pet.isAlive():%0A            return %22fail: pet esta morto%22%0A            %0A        if self.pet.energy %3E self.pet.energyMax - 5:%0A            return %22fail: nao esta com sono%22%0A        %0A        turnos = self.pet.energyMax - self.pet.energy%0A        msg = self.pet.set_energy(self.pet.energyMax)%0A        if msg:%0A            return msg%0A        self.pet.age += turnos%0A        return None%0A%0A    def shower(self):%0A        if not self.pet.isAlive():%0A            return %22fail: pet esta morto%22%0A        self.pet.age += 2%0A        %0A        msg_energy = self.pet.set_energy(self.pet.energy - 3)%0A        msg_clean = self.pet.set_clean(self.pet.cleanMax)%0A        %0A        if msg_energy: %0A            return msg_energy%0A        if msg_clean: %0A            return msg_clean%0A        %0A        return None%0A%0A    def show(self):%0A        return self.pet.show()%0A    %0A%0Adef main():%0A    game = Game()%0A%0A    while True:%0A        try:%0A            line = input().strip()%0A        except EOFError:%0A            break%0A        if line == %22%22:%0A            continue%0A        print(f%22$%7Bline%7D%22)%0A%0A        if line == %22end%22:%0A            print(%22$end%22)%0A            break%0A%0A        args = line.split()%0A        cmd = args%5B0%5D%0A%0A        if cmd == %22init%22:%0A            e, c = map(int, args%5B1:%5D)%0A            game.init(e, c)%0A        elif cmd == %22show%22:%0A            print(game.show()) %0A        elif cmd == %22play%22:%0A            msg = game.play()%0A            if msg:%0A                print(msg)%0A        elif cmd == %22sleep%22:%0A            msg = game.sleep()%0A            if msg:%0A                print(msg)%0A        elif cmd == %22shower%22:%0A            msg = game.shower()%0A            if msg:%0A                print(msg)%0A%0Amain()%0A\n",
+            "lines": "40"
+        },
+        {
+            "label": "2025-10-27_23-09-24",
+            "content": "@@ -2704,16 +2704,42 @@\n  %22end%22:%0A\n+            print(%22$end%22)%0A\n         \n@@ -3274,8 +3274,15 @@\n t(msg)%0A%0A\n+main()%0A\n",
+            "lines": "131"
+        },
+        {
+            "label": "2025-10-28_00-13-21",
+            "content": "@@ -2924,16 +2924,17 @@\n .show())\n+ \n %0A       \n@@ -3247,15 +3247,9 @@\n nt(msg)%0A\n-main()\n %0A\n",
+            "lines": "129"
+        },
+        {
+            "label": "2025-10-28_00-14-04",
+            "content": "class Tamagotchi:\n    def __init__(self, energyMax: int, cleanMax: int):\n        self.energyMax = energyMax\n        self.cleanMax = cleanMax\n        self.energy = energyMax\n        self.clean = cleanMax\n        self.age = 0\n        self.alive = True\n\n    def set_energy(self, value: int):\n        if value <= 0:\n            self.energy = 0\n            self.alive = False\n            return \"fail: pet morreu de fraqueza\"\n        elif value > self.energyMax:\n            self.energy = self.energyMax\n        else:\n            self.energy = value\n        return None\n    \n    def set_clean(self, value: int):\n        if value <= 0:\n            self.clean = 0\n            self.alive = False\n            return \"fail: pet morreu de sujeira\"\n        elif value > self.cleanMax:\n            self.clean = self.cleanMax\n        else:\n            self.clean = value\n        return None\n    \n    def isAlive(self):\n        return self.alive\n    \n    def show(self):\n        return f\"E:{self.energy}/{self.energyMax}, L:{self.clean}/{self.cleanMax}, I:{self.age}\"\n    \n\nclass Game:\n    def __init__(self):\n        self.pet = None\n\n    def init(self, energyMax, cleanMax):\n        self.pet = Tamagotchi(energyMax, cleanMax)\n\n    def play(self):\n        if not self.pet.isAlive():\n            return \"fail: pet esta morto\"\n        \n        self.pet.age += 1\n        \n        msg_energy = self.pet.set_energy(self.pet.energy - 2)\n        msg_clean = self.pet.set_clean(self.pet.clean - 3)\n        if msg_energy: \n            return msg_energy\n        if msg_clean: \n            return msg_clean\n\n        return None\n\n    def sleep(self):\n        if not self.pet.isAlive():\n            return \"fail: pet esta morto\"\n            \n        if self.pet.energy > self.pet.energyMax - 5:\n            return \"fail: nao esta com sono\"\n        \n        turnos = self.pet.energyMax - self.pet.energy\n        msg = self.pet.set_energy(self.pet.energyMax)\n        if msg:\n            return msg\n        self.pet.age += turnos\n        return None\n\n    def shower(self):\n        if not self.pet.isAlive():\n            return \"fail: pet esta morto\"\n        self.pet.age += 2\n        \n        msg_energy = self.pet.set_energy(self.pet.energy - 3)\n        msg_clean = self.pet.set_clean(self.pet.cleanMax)\n        \n        if msg_energy: \n            return msg_energy\n        if msg_clean: \n            return msg_clean\n        \n        return None\n\n    def show(self):\n        return self.pet.show()\n    \n\ndef main():\n    game = Game()\n\n    while True:\n        try:\n            line = input().strip()\n        except EOFError:\n            break\n        if line == \"\":\n            continue\n        print(f\"${line}\")\n\n        if line == \"end\":\n            break\n\n        args = line.split()\n        cmd = args[0]\n\n        if cmd == \"init\":\n            e, c = map(int, args[1:])\n            game.init(e, c)\n        elif cmd == \"show\":\n            print(game.show())\n        elif cmd == \"play\":\n            msg = game.play()\n            if msg:\n                print(msg)\n        elif cmd == \"sleep\":\n            msg = game.sleep()\n            if msg:\n                print(msg)\n        elif cmd == \"shower\":\n            msg = game.shower()\n            if msg:\n                print(msg)\nmain()\n",
+            "lines": "129"
+        }
+    ]
+}

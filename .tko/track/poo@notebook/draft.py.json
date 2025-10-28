@@ -1,0 +1,49 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-27_23-14-59",
+            "content": "@@ -1,8 +1,27 @@\n+@@ -1,253 +0,0 @@%0A-\n class Ba\n@@ -26,17 +26,19 @@\n Bateria:\n-%0A\n+%250A\n     def \n@@ -65,25 +65,27 @@\n idade: int):\n-%0A\n+%250A\n         self\n@@ -111,25 +111,27 @@\n = capacidade\n-%0A\n+%250A\n         self\n@@ -160,10 +160,14 @@\n dade\n-%0A%0A\n+%250A%250A\n     \n@@ -183,39 +183,43 @@\n pacidade(self) -\n-%3E\n+%253E\n  int:\n-%0A\n+%250A\n         return s\n@@ -234,22 +234,26 @@\n pacidade\n-%0A\n+%250A\n     \n-%0A\n+%250A\n     def \n@@ -272,208 +272,24 @@\n f) -\n-%3E\n+%253E\n  int:\n-%0A        return self.__carga%0A    %0A    def gastar(self, tempo: int):%0A        if tempo %3E self.__carga:%0A            gasto_real = self.__carga%0A            self.__carga = 0%0A            return gasto_real\n+%250A        \n %0A\n",
+            "lines": "2"
+        },
+        {
+            "label": "2025-10-27_23-27-22",
+            "content": "@@ -439,266 +439,4 @@\n eal%0A\n-        else:%0A            self.__carga -= tempo%0A            return tempo%0A        %0A    def carregar(self, quantidade: int):%0A        self.__carga += quantidade%0A        if self.__carga %3E self.__capacidade:%0A            self.__carga = self.__capacidade%0A            %0A%0A\n",
+            "lines": "16"
+        },
+        {
+            "label": "2025-10-27_23-28-58",
+            "content": "@@ -687,83 +687,18 @@\n ade%0A\n-%0A\n     \n-def mostrar(self):%0A        print(f%22(%7Bself.__carga%7D/%7Bself.__capacidade%7D)%22)\n+        %0A\n %0A\n",
+            "lines": "26"
+        },
+        {
+            "label": "2025-10-27_23-34-32",
+            "content": "@@ -766,371 +766,4 @@\n )%22)%0A\n-%0Aclass Carregador:%0A    def __init__(self, potencia: int) -%3E None:%0A        self.__potencia = potencia%0A%0A    def getPotencia(self):%0A        return self.__potencia%0A    %0A    def mostrar(self):%0A        print(f%22Pot%C3%AAncia %7Bself.__potencia%7D%22)%0A%0A    %0Aclass Notbook:%0A    def __init__(self) -%3E None:%0A        self.__ligado: bool = False%0A        self.__bateria: Bateria %7C None = None\n",
+            "lines": "27"
+        },
+        {
+            "label": "2025-10-27_23-39-51",
+            "content": "@@ -1133,389 +1133,4 @@\n None\n-%0A        self.__carregador: Carregador %7C None = None%0A%0A    def getBateria(self):%0A        return self.__bateria%0A    %0A    def setBateria(self, bateria: Bateria):%0A        self.__bateria = Bateria%0A%0A    def rmBateria(self):%0A        if self.__bateria:%0A            print(%22bateria removida%22)%0A            temp = self.__bateria%0A            self.__bateria = None%0A            return temp%0A%0A%0A        \n",
+            "lines": "43"
+        },
+        {
+            "label": "2025-10-27_23-51-49",
+            "content": "@@ -1508,195 +1508,8 @@\n emp%0A\n-        else:%0A            print(%22nenhuma bateria para remover%22)%0A%0A    def setCarregador(self, carregador: Carregador):%0A        self.__carregador = carregador%0A%0A    def ligar(self):%0A        \n %0A%0A  \n",
+            "lines": "60"
+        },
+        {
+            "label": "2025-10-27_23-56-32",
+            "content": "@@ -1695,952 +1695,14 @@\n     \n-carga = self.__bateria.getCarga() if self.__bateria else 0%0A        if carga %3E 0 or self.__carregador:%0A            self.__ligado = True%0A            print(%22Notbook ligado%22)%0A        else:%0A            print(%22n%C3%A3o foi possivel ligar%22)%0A%0A    def desligar(self):%0A        if self.__ligado:%0A            self.__ligado = False%0A            print(%22notbook desligado%22)%0A%0A     def mostrar(self):%0A        if self.__ligado:%0A            estado = %22Ligado%22%0A        else:%0A            estado = %22Desligado%22%0A%0A        if self.__bateria is None:%0A            bateria_status = %22(Nenhuma)%22%0A        else:%0A            bateria_status = f%22(%7Bself.__bateria.getCarga()%7D/%7Bself.__bateria.getCapacidade()%7D)%22%0A%0A        if self.__carregador is None:%0A            carregador_status = %22(Desconectado)%22%0A        else:%0A            carregador_status = f%22(Pot%C3%AAncia %7Bself.__carregador.getPotencia()%7D)%22%0A%0A        print(%22Status:%22, estado, %22, Bateria:%22, bateria_status, %22, Carregador:%22, carregador_status)\n+%0A%0A        \n",
+            "lines": "67"
+        },
+        {
+            "label": "2025-10-28_00-00-18",
+            "content": "@@ -2045,24 +2045,25 @@\n gado%22)%0A%0A    \n+ \n def mostrar(\n@@ -2643,435 +2643,4 @@\n tus)\n-%0A%0A    def usar(self, tempo: int):%0A        if not self.__ligado or self.__bateria is None or self.__bateria.getCarga() == 0:%0A            print(%22erro: ligue o notbook primeiro%22)%0A        else:%0A            gasto = self.__bateria.gastar(tempo)%0A            if gasto %3C tempo:%0A                print(f%22Usando por %7Bgasto%7D minutos%22)%0A                self.__ligado = False%0A            else:%0A                print(f%22Usando por %7Btempo%7D minutos%22)%0A\n",
+            "lines": "93"
+        },
+        {
+            "label": "2025-10-28_00-10-15",
+            "content": "class Bateria:\n    def __init__(self, capacidade: int):\n        self.__capacidade: int = capacidade\n        self.__carga: int = capacidade\n\n    def getCapacidade(self) -> int:\n        return self.__capacidade\n    \n    def getCarga(self) -> int:\n        return self.__carga\n    \n    def gastar(self, tempo: int):\n        if tempo > self.__carga:\n            gasto_real = self.__carga\n            self.__carga = 0\n            return gasto_real\n        else:\n            self.__carga -= tempo\n            return tempo\n        \n    def carregar(self, quantidade: int):\n        self.__carga += quantidade\n        if self.__carga > self.__capacidade:\n            self.__carga = self.__capacidade\n\n    def mostrar(self):\n        print(f\"({self.__carga}/{self.__capacidade})\")\n\nclass Carregador:\n    def __init__(self, potencia: int) -> None:\n        self.__potencia = potencia\n\n    def getPotencia(self):\n        return self.__potencia\n    \n    def mostrar(self):\n        print(f\"Pot\u00eancia {self.__potencia}\")\n\n    \nclass Notbook:\n    def __init__(self) -> None:\n        self.__ligado: bool = False\n        self.__bateria: Bateria | None = None\n        self.__carregador: Carregador | None = None\n\n    def getBateria(self):\n        return self.__bateria\n    \n    def setBateria(self, bateria: Bateria):\n        self.__bateria = Bateria\n\n    def rmBateria(self):\n        if self.__bateria:\n            print(\"bateria removida\")\n            temp = self.__bateria\n            self.__bateria = None\n            return temp\n        else:\n            print(\"nenhuma bateria para remover\")\n\n    def setCarregador(self, carregador: Carregador):\n        self.__carregador = carregador\n\n    def ligar(self):\n        carga = self.__bateria.getCarga() if self.__bateria else 0\n        if carga > 0 or self.__carregador:\n            self.__ligado = True\n            print(\"Notbook ligado\")\n        else:\n            print(\"n\u00e3o foi possivel ligar\")\n\n    def desligar(self):\n        if self.__ligado:\n            self.__ligado = False\n            print(\"notbook desligado\")\n\n    def mostrar(self):\n        if self.__ligado:\n            estado = \"Ligado\"\n        else:\n            estado = \"Desligado\"\n\n        if self.__bateria is None:\n            bateria_status = \"(Nenhuma)\"\n        else:\n            bateria_status = f\"({self.__bateria.getCarga()}/{self.__bateria.getCapacidade()})\"\n\n        if self.__carregador is None:\n            carregador_status = \"(Desconectado)\"\n        else:\n            carregador_status = f\"(Pot\u00eancia {self.__carregador.getPotencia()})\"\n\n        print(\"Status:\", estado, \", Bateria:\", bateria_status, \", Carregador:\", carregador_status)\n\n    def usar(self, tempo: int):\n        if not self.__ligado or self.__bateria is None or self.__bateria.getCarga() == 0:\n            print(\"erro: ligue o notbook primeiro\")\n        else:\n            gasto = self.__bateria.gastar(tempo)\n            if gasto < tempo:\n                print(f\"Usando por {gasto} minutos\")\n                self.__ligado = False\n            else:\n                print(f\"Usando por {tempo} minutos\")\n",
+            "lines": "104"
+        }
+    ]
+}
